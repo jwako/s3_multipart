@@ -45,7 +45,7 @@ module S3Multipart
       headers[:authorization], headers[:date] = sign_request verb: 'POST', url: url, content_type: options[:content_type]
 
       response = Http.post url, {headers: headers, body: body}
-      parsed_response_body = XmlSimple.xml_in(response.body)  
+      parsed_response_body = XmlSimple.xml_in(response.body)
 
       begin
         return { location: parsed_response_body["Location"][0] }

@@ -8,7 +8,7 @@ module S3Multipart
         response = upload.to_json
       rescue FileTypeError, FileSizeError => e
         response = {error: e.message}
-      rescue 
+      rescue  
         response = {error: 'There was an error initiating the upload'}
       ensure
         render :json => response
@@ -28,15 +28,15 @@ module S3Multipart
           response = Upload.sign_batch(params)
         rescue
           response = {error: 'There was an error in processing your upload'}
-        ensure
+        ensure  
           render :json => response
         end
       end
 
-      def sign_part
+      def sign_part        
         begin
           response = Upload.sign_part(params)
-        rescue
+        rescue          
           response = {error: 'There was an error in processing your upload'}
         ensure
           render :json => response
