@@ -413,7 +413,7 @@ function Upload(file, o, key) {
           _.each(parts, function(part, key) {
             var xhr = part.xhr;
 
-            xhr.open('PUT', 'http://'+upload.bucket+'.s3.amazonaws.com/'+object_name+'?partNumber='+part.num+'&uploadId='+upload_id, true);
+            xhr.open('PUT', 'https://'+upload.bucket+'.s3.amazonaws.com/'+object_name+'?partNumber='+part.num+'&uploadId='+upload_id, true);
             xhr.setRequestHeader('x-amz-date', response[key].date);
             xhr.setRequestHeader('Authorization', response[key].authorization);
 
