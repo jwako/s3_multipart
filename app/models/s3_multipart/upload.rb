@@ -12,7 +12,6 @@ module S3Multipart
 
     def execute_callback(stage, session)
       controller = deserialize(uploader)
-      
       case stage
       when :begin
         controller.on_begin_callback.call(self, session) if controller.on_begin_callback

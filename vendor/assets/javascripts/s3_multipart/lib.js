@@ -227,9 +227,10 @@ S3MP.prototype.deliverRequest = function(xhr, body, cb) {
   xhr.onload = function() {
     response = JSON.parse(this.responseText);
     if (response.error) { 
+      // modified by jwako
       return self.onError({
         name: "ServerResponse",
-        message: "The server responded with an error"
+        message: response.error
       });  
     }
     cb(response);
